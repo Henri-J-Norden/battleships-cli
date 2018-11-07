@@ -11,7 +11,7 @@ namespace Game {
         public static List<AI.IAI> AIs = new List<AI.IAI>() {
             new AI.Random(),
             new AI.AIriin(),
-            
+            new AI.Cheater(),
             
         };
 

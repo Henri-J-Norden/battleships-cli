@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -33,6 +34,33 @@ namespace Game {
             public Move GetMove() => new Random().GetMove();
 
             public void PlaceShips() => new Random().PlaceShips();
+        }
+
+        public class Cheater : IAI {
+            public override string ToString() => "Cheater";
+
+            public (int, int) MoveTimeRange { get; set; } = (50, 150);
+
+            public Move GetMove() {
+                var range = 1;
+                if (Players.CurrentPlayer.Nukes >= 0) {
+                    range = 2;
+                    Players.CurrentPlayer.Nukes--;
+                }
+
+                if (rnd.Next(2) == 1) {
+                    var ships = Players.GetOtherPlayer().Ships.Where(s => s.HP != 0).ToList();
+                    var ship = ships[rnd.Next(ships.Count())];
+                    var p = ship.Tiles.First(t => !t.Destroyed).Coords;
+                    return new Move(p, range);
+                } else {
+                    var m = new Random().GetMove();
+                    return new Move(m.P, range);
+                }
+            }
+
+            public void PlaceShips() => new Random().PlaceShips();
+
         }
 
         public class Random : IAI {

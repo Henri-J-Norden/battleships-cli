@@ -54,6 +54,7 @@ namespace Game {
 
             public void SetShip(Ships.Ship ship) {
                 Ship = ship;
+                if (!ship.Tiles.Contains(this)) ship.Tiles.Add(this);
             }
 
             public Ships.Ship GetShipAs(Players.Player player) {

@@ -14,9 +14,9 @@ namespace Game {
             { "Board height", 10 },
             { "Nukes", 1 },
             { "Ships may touch", 1 },
-            { "Power-Ups", 1 },
+            //{ "Power-Ups", 1 },
             { "Extra turn when hit", 1 },
-            { "Reveal hit ships", 0 }
+            //{ "Reveal hit ships", 0 }
             //{ "Board element height", 3 },
             //{ "Board element width", 6 }
         };

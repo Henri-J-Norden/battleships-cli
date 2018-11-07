@@ -60,11 +60,11 @@ namespace UI {
 
             public MenuNode() { }
 
-            public MenuNode(string nodeName, Action inputFunc, Func<string> outputFunc = null, Action<MenuNode> update = null, bool updateAfterInput = false) {
+            public MenuNode(string nodeName, Action inputFunc, Func<string> outputFunc = null, Action<MenuNode> update = null, bool updateParentAfterInput = false) {
                 NodeName = nodeName;
                 if (inputFunc != null) _InputFunc = () => {
                     inputFunc();
-                    if (updateAfterInput) ParentNode._Update?.Invoke(ParentNode);
+                    if (updateParentAfterInput) ParentNode._Update?.Invoke(ParentNode);
                 };
                 _OutputFunc = outputFunc;
                 SetUpdateAction(update);

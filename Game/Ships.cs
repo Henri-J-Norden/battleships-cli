@@ -18,7 +18,7 @@ public class Ships {
             public int Index;
             public int HP;
 
-            public List<Boards.BoardTile> Tiles;
+            public List<Boards.BoardTile> Tiles = new List<Boards.BoardTile>();
             public Players.Player Player;
 
             public override string ToString() => $"{Type.Name} [HP: {(HP < 0 ? "?" : HP.ToString())} / {(Type.HP == 0 ? "?" : Type.HP.ToString())}]";

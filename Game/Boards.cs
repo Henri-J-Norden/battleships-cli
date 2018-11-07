@@ -34,6 +34,7 @@ namespace Game {
 
             public BoardTile(Board b, int y, int x) {
                 Board = b;
+                b.AllTiles.Add(this);
                 Coords = new Point(y, x);
                 COL = MapIntToChars(Coords.X);
                 ROW = (Coords.Y + 1).ToString();
@@ -72,6 +73,7 @@ namespace Game {
 
         public class Board {
             public List<List<BoardTile>> Map = new List<List<BoardTile>>();
+            public List<BoardTile> AllTiles = new List<BoardTile>();
             public Players.Player Player;
 
             //public BoardTile SelectedTile;

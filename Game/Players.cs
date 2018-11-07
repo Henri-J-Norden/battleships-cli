@@ -9,6 +9,7 @@ namespace Game {
         public static int MaxHP => Options.Ships.Sum((s) => s.HP * s.Count);
 
         public static List<AI.IAI> AIs = new List<AI.IAI>() {
+            new AI.Competitive(),
             new AI.Random(),
             new AI.AIriin(),
             new AI.Cheater(),
